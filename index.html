@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mulla Rohan | AI & ML Engineer</title>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700&family=Rajdhani:wght@300;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        rajdhani: ['Rajdhani', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: {
+                            DEFAULT: '#0a0a0a',
+                            100: '#1a1a1a',
+                            200: '#2a2a2a',
+                        },
+                        primary: '#00f3ff', // Neon Cyan
+                        secondary: '#bc13fe', // Neon Purple
+                    },
+                    backgroundImage: {
+                        'hero-gradient': 'radial-gradient(circle at 50% 50%, #1a1a2e 0%, #0a0a0a 100%)',
+                        'glass': 'linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%)',
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-gradient {
+                @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+            }
+            .glass-card {
+                @apply bg-white/70 dark:bg-white/5 backdrop-blur-md border border-black/10 dark:border-white/20 shadow-xl;
+            }
+            .nav-link {
+                @apply relative text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full;
+            }
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: #00f3ff;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-gray-50 dark:bg-dark text-gray-900 dark:text-gray-100 font-sans antialiased selection:bg-primary selection:text-black overflow-x-hidden">
+
+    <!-- Background Effects -->
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <!-- Light mode blobs -->
+        <div
+            class="absolute top-0 left-1/4 w-96 h-96 bg-blue-200/30 rounded-full mix-blend-multiply filter blur-[100px] animate-blob dark:hidden">
+        </div>
+        <div
+            class="absolute top-0 right-1/4 w-96 h-96 bg-purple-200/30 rounded-full mix-blend-multiply filter blur-[100px] animate-blob animation-delay-2000 dark:hidden">
+        </div>
+
+        <!-- Dark mode blobs -->
+        <div
+            class="hidden dark:block absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob">
+        </div>
+        <div
+            class="hidden dark:block absolute top-0 right-1/4 w-96 h-96 bg-secondary/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000">
+        </div>
+        <div
+            class="hidden dark:block absolute -bottom-32 left-1/3 w-96 h-96 bg-purple-500/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-4000">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div
+            class="absolute inset-0 bg-white/80 dark:bg-dark/80 backdrop-blur-md border-b border-black/5 dark:border-white/5">
+        </div>
+        <div class="container mx-auto px-6 py-4 relative flex justify-between items-center">
+            <a href="#" class="text-2xl font-orbitron font-bold tracking-wider text-gray-900 dark:text-white">
+                MullaRohan<span class="text-primary"></span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="nav-link text-sm uppercase tracking-widest">Home</a>
+                <a href="#about" class="nav-link text-sm uppercase tracking-widest">About</a>
+                <a href="#skills" class="nav-link text-sm uppercase tracking-widest">Skills</a>
+                <a href="#projects" class="nav-link text-sm uppercase tracking-widest">Projects</a>
+                <a href="#contact" class="nav-link text-sm uppercase tracking-widest">Contact</a>
+                <button id="theme-toggle"
+                    class="ml-4 p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-primary">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-gray-900 dark:text-white text-xl" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden absolute top-full left-0 w-full bg-white/95 dark:bg-dark/95 backdrop-blur-xl border-b border-black/10 dark:border-white/10 transform -translate-y-full transition-transform duration-300"
+            id="mobile-menu">
+            <div class="flex flex-col p-6 space-y-4">
+                <a href="#home" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">Home</a>
+                <a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">About</a>
+                <a href="#skills"
+                    class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">Skills</a>
+                <a href="#projects"
+                    class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">Projects</a>
+                <a href="#contact"
+                    class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative pt-20">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-center md:text-left z-10">
+                <div
+                    class="inline-block px-3 py-1 mb-4 border border-primary/30 rounded-full bg-primary/10 backdrop-blur-sm">
+                    <span class="text-primary text-xs font-rajdhani font-bold tracking-[0.2em]">WELCOME TO MY
+                        PORTFOLIO</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold font-orbitron mb-6 leading-tight">
+                    Hi, I'm <br>
+                    <span class="text-gradient">Md. Rohan Mulla</span>
+                </h1>
+                <div
+                    class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 font-rajdhani font-medium mb-8 h-8 flex items-center justify-center md:justify-start">
+                    I'm a&nbsp;<span class="typewriter-text text-gray-900 dark:text-white"></span><span
+                        class="cursor">|</span>
+                </div>
+                <div class="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#projects"
+                        class="px-8 py-3 bg-primary text-black font-bold rounded hover:bg-cyan-400 transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_20px_rgba(0,243,255,0.4)]">
+                        View Work
+                    </a>
+                    <a href="#"
+                        class="px-8 py-3 border border-black/20 dark:border-white/20 hover:border-primary text-gray-900 dark:text-white rounded hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-300">
+                        Download CV
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative z-10 flex justify-center">
+                <div class="relative w-72 h-72 md:w-96 md:h-96">
+                    <!-- Abstract Tech Circle/Image Placeholder -->
+                    <div
+                        class="absolute inset-0 rounded-full border-2 border-primary/30 animate-[spin_10s_linear_infinite]">
+                    </div>
+                    <div
+                        class="absolute inset-4 rounded-full border-2 border-secondary/30 animate-[spin_15s_linear_infinite_reverse]">
+                    </div>
+                    <div
+                        class="absolute inset-0 rounded-full bg-gradient-to-br from-primary/10 to-secondary/10 backdrop-blur-sm flex items-center justify-center overflow-hidden animate-float">
+                        <img src="portfolio_rohan_ai_ml.png" alt="Mulla Rohan"
+                            class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-orbitron font-bold text-center mb-16">
+                About <span class="text-primary">Me</span>
+            </h2>
+
+            <div class="glass-card rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8 items-center">
+                    <div class="md:col-span-1 flex justify-center">
+                        <div class="w-40 h-40 rounded-full bg-gradient-to-r from-primary to-secondary p-1">
+                            <div
+                                class="w-full h-full bg-white dark:bg-dark rounded-full flex items-center justify-center overflow-hidden">
+                                <i class="fas fa-user-astronaut text-6xl text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2 space-y-4 text-gray-600 dark:text-gray-300">
+                        <p class="text-lg leading-relaxed">
+                            I'm <span class="text-gray-900 dark:text-white font-bold">Mulla Rohan</span>, a programming
+                            enthusiast with a
+                            strong focus on software engineering, competitive programming, and AI/ML. I enjoy solving
+                            problems, building efficient systems, and continuously improving my technical skills.
+                        </p>
+                        <p class="text-lg leading-relaxed">
+                            Currently studying <span class="text-primary">BSc in Computer Science & Engineering</span>
+                            at Rabindra Maitree University.
+                        </p>
+                        <div class="pt-4 flex gap-4">
+                            <div class="text-center">
+                                <h4 class="text-2xl font-bold text-gray-900 dark:text-white">5+</h4>
+                                <p class="text-sm text-gray-500">Projects</p>
+                            </div>
+                            <div class="text-center">
+                                <h4 class="text-2xl font-bold text-gray-900 dark:text-white">2+</h4>
+                                <p class="text-sm text-gray-500">Years Exp</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-100 dark:bg-dark-100/50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-orbitron font-bold text-center mb-16">
+                My <span class="text-secondary">Skills</span>
+            </h2>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <!-- Skill Card 1 -->
+                <div
+                    class="glass-card p-6 rounded-xl text-center hover:-translate-y-2 transition-transform duration-300 group">
+                    <i class="fas fa-code text-4xl mb-4 text-blue-500 group-hover:text-primary transition-colors"></i>
+                    <h3 class="font-rajdhani font-bold text-xl mb-1 text-gray-900 dark:text-white">C++</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Competitive Programming</p>
+                </div>
+                <!-- Skill Card 2 -->
+                <div
+                    class="glass-card p-6 rounded-xl text-center hover:-translate-y-2 transition-transform duration-300 group">
+                    <i
+                        class="fab fa-python text-4xl mb-4 text-yellow-400 group-hover:text-primary transition-colors"></i>
+                    <h3 class="font-rajdhani font-bold text-xl mb-1 text-gray-900 dark:text-white">Python</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Machine Learning</p>
+                </div>
+                <!-- Skill Card 3 -->
+                <div
+                    class="glass-card p-6 rounded-xl text-center hover:-translate-y-2 transition-transform duration-300 group">
+                    <i
+                        class="fab fa-html5 text-4xl mb-4 text-orange-500 group-hover:text-primary transition-colors"></i>
+                    <h3 class="font-rajdhani font-bold text-xl mb-1 text-gray-900 dark:text-white">HTML5</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Web Structure</p>
+                </div>
+                <!-- Skill Card 4 -->
+                <div
+                    class="glass-card p-6 rounded-xl text-center hover:-translate-y-2 transition-transform duration-300 group">
+                    <i
+                        class="fab fa-css3-alt text-4xl mb-4 text-blue-400 group-hover:text-primary transition-colors"></i>
+                    <h3 class="font-rajdhani font-bold text-xl mb-1 text-gray-900 dark:text-white">CSS3</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Responsive Design</p>
+                </div>
+                <!-- Skill Card 5 -->
+                <div
+                    class="glass-card p-6 rounded-xl text-center hover:-translate-y-2 transition-transform duration-300 group">
+                    <i class="fab fa-js text-4xl mb-4 text-yellow-300 group-hover:text-primary transition-colors"></i>
+                    <h3 class="font-rajdhani font-bold text-xl mb-1 text-gray-900 dark:text-white">JavaScript</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Interactivity</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-orbitron font-bold text-center mb-16">
+                Featured <span class="text-primary">Projects</span>
+            </h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="glass-card rounded-xl overflow-hidden group">
+                    <div class="h-48 bg-gray-200 dark:bg-gray-800 relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-white dark:from-dark to-transparent opacity-80">
+                        </div>
+                        <div
+                            class="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                            <i class="fas fa-school text-6xl text-gray-600"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3
+                            class="text-xl font-bold font-rajdhani mb-2 text-gray-900 dark:text-white group-hover:text-primary transition-colors">
+                            School Management</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">A comprehensive system for managing
+                            school operations
+                            efficiently.</p>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-sm text-primary hover:text-white transition-colors"><i
+                                    class="fab fa-github mr-1"></i> Code</a>
+                            <a href="#" class="text-sm text-secondary hover:text-white transition-colors"><i
+                                    class="fas fa-external-link-alt mr-1"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card rounded-xl overflow-hidden group">
+                    <div class="h-48 bg-gray-200 dark:bg-gray-800 relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-white dark:from-dark to-transparent opacity-80">
+                        </div>
+                        <div
+                            class="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                            <i class="fas fa-university text-6xl text-gray-600"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3
+                            class="text-xl font-bold font-rajdhani mb-2 text-gray-900 dark:text-white group-hover:text-primary transition-colors">
+                            PyBank (CLI)</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">A command-line interface banking
+                            application built with
+                            Python.</p>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-sm text-primary hover:text-white transition-colors"><i
+                                    class="fab fa-github mr-1"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="glass-card rounded-xl overflow-hidden group">
+                    <div class="h-48 bg-gray-200 dark:bg-gray-800 relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-white dark:from-dark to-transparent opacity-80">
+                        </div>
+                        <div
+                            class="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                            <i class="fas fa-globe-asia text-6xl text-gray-600"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3
+                            class="text-xl font-bold font-rajdhani mb-2 text-gray-900 dark:text-white group-hover:text-primary transition-colors">
+                            Beautiful Bangladesh</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">A showcase website highlighting the
+                            beauty of Bangladesh.
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-sm text-primary hover:text-white transition-colors"><i
+                                    class="fab fa-github mr-1"></i> Code</a>
+                            <a href="#" class="text-sm text-secondary hover:text-white transition-colors"><i
+                                    class="fas fa-external-link-alt mr-1"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="glass-card rounded-xl overflow-hidden group">
+                    <div class="h-48 bg-gray-200 dark:bg-gray-800 relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-white dark:from-dark to-transparent opacity-80">
+                        </div>
+                        <div
+                            class="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                            <i class="fas fa-gamepad text-6xl text-gray-600"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3
+                            class="text-xl font-bold font-rajdhani mb-2 text-gray-900 dark:text-white group-hover:text-primary transition-colors">
+                            Tic Tac Toe</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Classic game implementation with AI
+                            opponent logic.</p>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-sm text-primary hover:text-white transition-colors"><i
+                                    class="fab fa-github mr-1"></i> Code</a>
+                            <a href="#" class="text-sm text-secondary hover:text-white transition-colors"><i
+                                    class="fas fa-play mr-1"></i> Play</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-100 dark:bg-dark-100/50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-orbitron font-bold mb-16">
+                Get In <span class="text-secondary">Touch</span>
+            </h2>
+
+            <div class="flex flex-wrap justify-center gap-8 md:gap-12">
+                <a href="mailto:rohanmulla.cs@gmail.com" class="group flex flex-col items-center gap-3">
+                    <div
+                        class="w-16 h-16 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all duration-300">
+                        <i class="fas fa-envelope text-2xl text-gray-600 dark:text-gray-400 group-hover:text-black"></i>
+                    </div>
+                    <span
+                        class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors">Email</span>
+                </a>
+
+                <a href="https://github.com/MullaRohan" target="_blank" class="group flex flex-col items-center gap-3">
+                    <div
+                        class="w-16 h-16 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all duration-300">
+                        <i class="fab fa-github text-2xl text-gray-600 dark:text-gray-400 group-hover:text-black"></i>
+                    </div>
+                    <span
+                        class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors">GitHub</span>
+                </a>
+
+                <a href="https://codeforces.com/profile/MullaRohan" target="_blank"
+                    class="group flex flex-col items-center gap-3">
+                    <div
+                        class="w-16 h-16 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all duration-300">
+                        <i class="fas fa-code text-2xl text-gray-600 dark:text-gray-400 group-hover:text-black"></i>
+                    </div>
+                    <span
+                        class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors">Codeforces</span>
+                </a>
+
+                <a href="https://www.codechef.com/users/mullarohan" target="_blank"
+                    class="group flex flex-col items-center gap-3">
+                    <div
+                        class="w-16 h-16 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all duration-300">
+                        <i class="fas fa-utensils text-2xl text-gray-600 dark:text-gray-400 group-hover:text-black"></i>
+                    </div>
+                    <span
+                        class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors">CodeChef</span>
+                </a>
+
+                <a href="https://www.facebook.com/MullaRohan/" target="_blank"
+                    class="group flex flex-col items-center gap-3">
+                    <div
+                        class="w-16 h-16 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all duration-300">
+                        <i class="fab fa-facebook text-2xl text-gray-600 dark:text-gray-400 group-hover:text-black"></i>
+                    </div>
+                    <span
+                        class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors">Facebook</span>
+                </a>
+                <!-- asdfk -->
+                <a href="https://www.linkedin.com/in/mullarohan/" target="_blank"
+                    class="group flex flex-col items-center gap-3">
+                    <div
+                        class="w-16 h-16 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all duration-300">
+                        <i class="fab fa-linkedin text-2xl text-gray-600 dark:text-gray-400 group-hover:text-black"></i>
+                    </div>
+                    <span
+                        class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors">LinkedIn</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-black/5 dark:border-white/5 text-center text-gray-500 text-sm">
+        <p>&copy; 2024 @MullaRohan. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
