@@ -4,507 +4,529 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mulla Rohan | AI & ML Engineer</title>
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
+    <title>MD. Rohan Mulla | Portfolio</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700&family=Rajdhani:wght@300;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@400;500;700&display=swap"
         rel="stylesheet">
-
-    <!-- Tailwind CSS -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2316f2b3'/%3E%3Cstop offset='100%25' stop-color='%233da2ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='4' y='4' width='56' height='56' rx='12' fill='%23050a13'/%3E%3Cpath d='M24 20L14 32l10 12M40 20l10 12-10 12' stroke='url(%23g)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
     <script src="https://cdn.tailwindcss.com"></script>
+
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        orbitron: ['Orbitron', 'sans-serif'],
-                        rajdhani: ['Rajdhani', 'sans-serif'],
+                        sans: ['"Space Grotesk"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
                     },
                     colors: {
-                        dark: {
-                            DEFAULT: '#0a0a0a',
-                            100: '#1a1a1a',
-                            200: '#2a2a2a',
-                        },
-                        primary: '#00f3ff', // Neon Cyan
-                        secondary: '#bc13fe', // Neon Purple
+                        accent: 'var(--accent)',
+                        accentAlt: 'var(--accent-alt)',
+                        textMain: 'var(--text-main)',
+                        textSoft: 'var(--text-soft)',
+                        bgBase: 'var(--bg-base)',
+                        navBg: 'var(--nav-bg)',
+                        panel: 'var(--panel)',
+                        panelSolid: 'var(--panel-solid)',
+                        cardBg: 'var(--card-bg)',
+                        borderBase: 'var(--border)'
                     },
-                    backgroundImage: {
-                        'hero-gradient': 'radial-gradient(circle at 50% 50%, #1a1a2e 0%, #0a0a0a 100%)',
-                        'glass': 'linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%)',
-                    },
-                    animation: {
-                        'blob': 'blob 7s infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        }
+                    boxShadow: {
+                        custom: 'var(--shadow)'
                     }
                 }
             }
         }
     </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .text-gradient {
-                @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
-            }
-            .glass-card {
-                @apply bg-white/70 dark:bg-white/5 backdrop-blur-md border border-black/10 dark:border-white/20 shadow-xl;
-            }
-            .nav-link {
-                @apply relative text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full;
-            }
-        }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0a0a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #333;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555;
+
+    <style>
+        :root {
+            --bg-base: #070b14;
+            --panel: rgba(12, 20, 38, 0.72);
+            --panel-solid: #121d34;
+            --border: rgba(98, 121, 164, 0.32);
+            --text-main: #e6edf8;
+            --text-soft: #9db0ce;
+            --accent: #16f2b3;
+            --accent-alt: #3da2ff;
+            --bg-grad-1: rgba(22, 242, 179, 0.12);
+            --bg-grad-2: rgba(61, 162, 255, 0.16);
+            --bg-main-start: #050a13;
+            --bg-main-mid: #0a1222;
+            --bg-main-end: #080c18;
+            --nav-bg: rgba(7, 12, 22, 0.68);
+            --card-bg: rgba(13, 23, 43, 0.66);
+            --hero-grad-a: rgba(18, 29, 52, 0.9);
+            --hero-grad-b: rgba(10, 18, 34, 0.55);
+            --shadow: 0 14px 36px rgba(1, 7, 20, 0.45);
         }
 
-        .cursor {
-            display: inline-block;
-            width: 3px;
-            background-color: #00f3ff;
-            animation: blink 1s infinite;
+        body[data-theme="light"] {
+            --bg-base: #eff5ff;
+            --panel: rgba(255, 255, 255, 0.84);
+            --panel-solid: #ffffff;
+            --border: rgba(83, 110, 153, 0.32);
+            --text-main: #12233f;
+            --text-soft: #3f577c;
+            --accent: #007f5f;
+            --accent-alt: #0066c9;
+            --bg-grad-1: rgba(0, 127, 95, 0.11);
+            --bg-grad-2: rgba(0, 102, 201, 0.11);
+            --bg-main-start: #f6fbff;
+            --bg-main-mid: #ebf3ff;
+            --bg-main-end: #e3eefe;
+            --nav-bg: rgba(246, 251, 255, 0.8);
+            --card-bg: rgba(255, 255, 255, 0.86);
+            --hero-grad-a: rgba(255, 255, 255, 0.9);
+            --hero-grad-b: rgba(230, 240, 255, 0.82);
+            --shadow: 0 12px 28px rgba(21, 40, 74, 0.12);
         }
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+        body {
+            background:
+                radial-gradient(circle at 12% 18%, var(--bg-grad-1), transparent 34%),
+                radial-gradient(circle at 86% 14%, var(--bg-grad-2), transparent 30%),
+                linear-gradient(150deg, var(--bg-main-start) 0%, var(--bg-main-mid) 50%, var(--bg-main-end) 100%);
+            background-attachment: fixed;
+        }
+
+        /* Section Background Overlays */
+        .sec-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            opacity: 0.95;
+        }
+
+        #welcome .sec-overlay {
+            background: linear-gradient(145deg, rgba(15, 34, 62, 0.55), rgba(5, 16, 32, 0.6));
+        }
+
+        #about .sec-overlay {
+            background: linear-gradient(145deg, rgba(10, 48, 43, 0.5), rgba(8, 28, 30, 0.62));
+        }
+
+        #skills .sec-overlay {
+            background: linear-gradient(145deg, rgba(50, 27, 62, 0.5), rgba(22, 18, 42, 0.62));
+        }
+
+        #projects .sec-overlay {
+            background: linear-gradient(145deg, rgba(58, 29, 22, 0.5), rgba(26, 14, 16, 0.62));
+        }
+
+        #profiles .sec-overlay {
+            background: linear-gradient(145deg, rgba(24, 38, 66, 0.52), rgba(10, 16, 32, 0.62));
+        }
+
+        body[data-theme="light"] #welcome .sec-overlay {
+            background: linear-gradient(145deg, rgba(212, 231, 255, 0.72), rgba(227, 242, 255, 0.74));
+        }
+
+        body[data-theme="light"] #about .sec-overlay {
+            background: linear-gradient(145deg, rgba(208, 246, 233, 0.75), rgba(224, 248, 240, 0.72));
+        }
+
+        body[data-theme="light"] #skills .sec-overlay {
+            background: linear-gradient(145deg, rgba(236, 223, 255, 0.72), rgba(244, 234, 255, 0.72));
+        }
+
+        body[data-theme="light"] #projects .sec-overlay {
+            background: linear-gradient(145deg, rgba(255, 231, 218, 0.74), rgba(255, 240, 232, 0.74));
+        }
+
+        body[data-theme="light"] #profiles .sec-overlay {
+            background: linear-gradient(145deg, rgba(223, 235, 255, 0.74), rgba(237, 245, 255, 0.74));
+        }
+
+        /* Custom Hover Effects & Active States */
+        .nav-link.active {
+            color: var(--text-main);
+            border-color: rgba(22, 242, 179, 0.35);
+            background-color: rgba(22, 242, 179, 0.1);
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Glowing Orb in About Section */
+        .about-orb {
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            right: -100px;
+            top: 50%;
+            transform: translateY(-50%) scale(0.8);
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(22, 242, 179, 0.15) 0%, rgba(61, 162, 255, 0.05) 45%, transparent 70%);
+            filter: blur(8px);
+            opacity: 0;
+            pointer-events: none;
+            z-index: -1;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .is-visible .about-orb {
+            opacity: 1;
+            transform: translateY(-50%) scale(1);
         }
     </style>
 </head>
 
-<body
-    class="bg-gray-50 dark:bg-dark text-gray-900 dark:text-gray-100 font-sans antialiased selection:bg-primary selection:text-black overflow-x-hidden">
+<body class="text-textMain font-sans overflow-x-hidden" data-theme="dark">
 
-    <!-- Background Effects -->
-    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
-        <!-- Light mode blobs -->
-        <div
-            class="absolute top-0 left-1/4 w-96 h-96 bg-blue-200/30 rounded-full mix-blend-multiply filter blur-[100px] animate-blob dark:hidden">
-        </div>
-        <div
-            class="absolute top-0 right-1/4 w-96 h-96 bg-purple-200/30 rounded-full mix-blend-multiply filter blur-[100px] animate-blob animation-delay-2000 dark:hidden">
-        </div>
+    <header
+        class="fixed top-0 left-0 w-full z-50 border-b border-borderBase bg-navBg backdrop-blur-md transition-all duration-300"
+        id="navbar">
+        <div class="w-full max-w-[1120px] mx-auto min-h-[66px] flex items-center justify-between px-4 sm:px-6">
+            <div class="font-mono text-accent text-sm sm:text-base tracking-wider font-bold">&lt;Rohan.dev/&gt;</div>
+            <nav class="flex items-center gap-1 sm:gap-3 flex-wrap justify-end">
+                <a class="nav-link font-mono no-underline text-textSoft text-[0.75rem] sm:text-sm px-2 sm:px-3 py-1.5 rounded-lg border border-transparent transition-all hover:text-textMain hover:border-[#16f2b359] hover:bg-[#16f2b31a]"
+                    href="#welcome">Welcome</a>
+                <a class="nav-link font-mono no-underline text-textSoft text-[0.75rem] sm:text-sm px-2 sm:px-3 py-1.5 rounded-lg border border-transparent transition-all hover:text-textMain hover:border-[#16f2b359] hover:bg-[#16f2b31a]"
+                    href="#about">About</a>
+                <a class="nav-link font-mono no-underline text-textSoft text-[0.75rem] sm:text-sm px-2 sm:px-3 py-1.5 rounded-lg border border-transparent transition-all hover:text-textMain hover:border-[#16f2b359] hover:bg-[#16f2b31a]"
+                    href="#skills">Skills</a>
+                <a class="nav-link font-mono no-underline text-textSoft text-[0.75rem] sm:text-sm px-2 sm:px-3 py-1.5 rounded-lg border border-transparent transition-all hover:text-textMain hover:border-[#16f2b359] hover:bg-[#16f2b31a]"
+                    href="#projects">Projects</a>
+                <a class="nav-link font-mono no-underline text-textSoft text-[0.75rem] sm:text-sm px-2 sm:px-3 py-1.5 rounded-lg border border-transparent transition-all hover:text-textMain hover:border-[#16f2b359] hover:bg-[#16f2b31a]"
+                    href="#profiles">Profiles</a>
 
-        <!-- Dark mode blobs -->
-        <div
-            class="hidden dark:block absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob">
+                <button
+                    class="ml-2 font-mono text-textMain border border-borderBase rounded-lg w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-[#3da2ff14] transition-all hover:border-[#16f2b373] hover:bg-[#16f2b31f]"
+                    id="theme-toggle" type="button">
+                    <span id="theme-icon">🌙</span>
+                </button>
+            </nav>
         </div>
-        <div
-            class="hidden dark:block absolute top-0 right-1/4 w-96 h-96 bg-secondary/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000">
+    </header>
+
+    <main>
+        <section id="welcome"
+            class="relative flex items-center justify-center pt-24 px-4 sm:px-6 pb-14 min-h-screen overflow-hidden isolate">
+            <div class="sec-overlay"></div>
+            <div class="w-full max-w-[1120px] mx-auto fade-in-section">
+                <article class="p-6 md:p-12 border border-borderBase rounded-2xl shadow-custom max-w-[1020px] mx-auto"
+                    style="background: linear-gradient(155deg, var(--hero-grad-a), var(--hero-grad-b));">
+                    <p class="font-mono text-[0.88rem] text-accent tracking-widest uppercase mb-4">Welcome</p>
+                    <h1
+                        class="font-mono text-4xl sm:text-5xl lg:text-[4rem] leading-tight mb-4 font-bold text-textMain">
+                        MD. ROHAN MULLA</h1>
+                    <p class="text-textMain text-lg sm:text-xl mb-3">Computer Science Undergraduate &amp; Developer</p>
+                    <p class="text-textSoft leading-relaxed text-base sm:text-lg max-w-[760px]">I design clean,
+                        practical software solutions and enjoy turning complex logic into reliable products through
+                        code.</p>
+                    <p class="mt-6 text-accent font-mono text-sm sm:text-[0.94rem]">$ Building systems with precision,
+                        structure, and purpose.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="about"
+            class="relative flex items-center justify-center pt-24 px-4 sm:px-6 pb-14 min-h-screen overflow-hidden isolate">
+            <div class="sec-overlay"></div>
+            <div class="about-orb"></div>
+            <div
+                class="w-full max-w-[1120px] mx-auto border border-borderBase rounded-2xl bg-panel shadow-custom p-6 md:p-10 fade-in-section transition-transform duration-300 hover:-translate-y-1 hover:border-[#16f2b355] hover:shadow-[0_18px_40px_rgba(5,18,26,0.5)]">
+                <p class="font-mono text-[0.88rem] text-accent tracking-widest uppercase mb-4">About Me</p>
+                <h2 class="font-mono text-2xl sm:text-3xl md:text-4xl mb-4 font-bold text-textMain">Engineer Mindset,
+                    Problem-Solving Focus</h2>
+                <p class="text-textSoft leading-relaxed text-base sm:text-lg max-w-[800px]">I am a B.Sc. in Computer
+                    Science and Engineering student at Rabindra Maitree University, with expected graduation in 2026. I
+                    bring strong analytical thinking and a passion for solving complex problems through structured
+                    reasoning.</p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+                    <div
+                        class="border border-borderBase rounded-xl bg-cardBg p-6 transition-all duration-300 hover:border-[#16f2b36b] hover:-translate-y-1 hover:shadow-[0_10px_28px_rgba(6,12,24,0.62)]">
+                        <h3 class="font-mono text-lg text-accentAlt mb-4">Academic Track</h3>
+                        <p class="text-textSoft mb-2">Program: B.Sc. in Computer Science and Engineering</p>
+                        <p class="text-textSoft mb-2">University: Rabindra Maitree University</p>
+                        <p class="text-textSoft font-bold text-textMain">Expected Graduation: 2026</p>
+                    </div>
+                    <div
+                        class="border border-borderBase rounded-xl bg-cardBg p-6 transition-all duration-300 hover:border-[#16f2b36b] hover:-translate-y-1 hover:shadow-[0_10px_28px_rgba(6,12,24,0.62)]">
+                        <h3 class="font-mono text-lg text-accentAlt mb-4">Core Approach</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="border border-[#3da2ff66] rounded-full text-[#c6dcff] px-4 py-1.5 text-sm bg-[#3da2ff0a]">Analytical
+                                Thinking</span>
+                            <span
+                                class="border border-[#3da2ff66] rounded-full text-[#c6dcff] px-4 py-1.5 text-sm bg-[#3da2ff0a]">Structured
+                                Reasoning</span>
+                            <span
+                                class="border border-[#3da2ff66] rounded-full text-[#c6dcff] px-4 py-1.5 text-sm bg-[#3da2ff0a]">Practical
+                                Engineering</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills"
+            class="relative flex items-center justify-center pt-24 px-4 sm:px-6 pb-14 min-h-screen overflow-hidden isolate">
+            <div class="sec-overlay"></div>
+            <div
+                class="w-full max-w-[1120px] mx-auto border border-borderBase rounded-2xl bg-panel shadow-custom p-6 md:p-10 fade-in-section">
+                <p class="font-mono text-[0.88rem] text-accent tracking-widest uppercase mb-4">Skills</p>
+                <h2 class="font-mono text-2xl sm:text-3xl md:text-4xl mb-6 font-bold text-textMain">Technical Stack</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <article
+                        class="border border-borderBase rounded-xl bg-cardBg p-6 transition-all duration-300 hover:border-[#16f2b36b] hover:-translate-y-1 hover:shadow-[0_10px_28px_rgba(6,12,24,0.62)]">
+                        <h3 class="font-mono text-lg text-accentAlt mb-4">Programming Languages</h3>
+                        <ul class="flex flex-col gap-3 list-none text-textSoft">
+                            <li class="flex items-center"><span class="text-accent font-mono mr-2">>_</span> C</li>
+                            <li class="flex items-center"><span class="text-accent font-mono mr-2">>_</span> C++</li>
+                            <li class="flex items-center"><span class="text-accent font-mono mr-2">>_</span> Python
+                                (Proficient)</li>
+                        </ul>
+                    </article>
+
+                    <article
+                        class="border border-borderBase rounded-xl bg-cardBg p-6 transition-all duration-300 hover:border-[#16f2b36b] hover:-translate-y-1 hover:shadow-[0_10px_28px_rgba(6,12,24,0.62)]">
+                        <h3 class="font-mono text-lg text-accentAlt mb-4">Machine Learning</h3>
+                        <ul class="flex flex-col gap-3 list-none text-textSoft">
+                            <li class="flex items-center"><span class="text-accent font-mono mr-2">>_</span>
+                                Scikit-learn</li>
+                            <li class="flex items-center"><span class="text-accent font-mono mr-2">>_</span> Feature
+                                Engineering</li>
+                            <li class="flex items-center"><span class="text-accent font-mono mr-2">>_</span> Data
+                                Preprocessing</li>
+                        </ul>
+                    </article>
+
+                    <article
+                        class="border border-borderBase rounded-xl bg-cardBg p-6 transition-all duration-300 hover:border-[#16f2b36b] hover:-translate-y-1 hover:shadow-[0_10px_28px_rgba(6,12,24,0.62)]">
+                        <h3 class="font-mono text-lg text-accentAlt mb-4">Web Development</h3>
+                        <ul class="flex flex-col gap-3 list-none text-textSoft">
+                            <li class="flex items-center"><span class="text-accent font-mono mr-2">>_</span> HTML</li>
+                            <li class="flex items-center"><span class="text-accent font-mono mr-2">>_</span> CSS</li>
+                            <li class="flex items-center"><span class="text-accent font-mono mr-2">>_</span> JavaScript
+                            </li>
+                            <li class="flex items-center"><span class="text-accent font-mono mr-2">>_</span> FastAPI
+                            </li>
+                        </ul>
+                    </article>
+                </div>
+
+                <div class="mt-8 p-4 rounded-xl border border-[#16f2b352] bg-[#16f2b314] flex items-center gap-3">
+                    <span class="text-2xl">🏆</span>
+                    <p class="text-accentAlt font-medium">Solved 500+ problems in various Online Judges.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects"
+            class="relative flex items-center justify-center pt-24 px-4 sm:px-6 pb-14 min-h-screen overflow-hidden isolate">
+            <div class="sec-overlay"></div>
+            <div
+                class="w-full max-w-[1120px] mx-auto border border-borderBase rounded-2xl bg-panel shadow-custom p-6 md:p-10 fade-in-section">
+                <p class="font-mono text-[0.88rem] text-accent tracking-widest uppercase mb-4">Projects</p>
+                <h2 class="font-mono text-2xl sm:text-3xl md:text-4xl mb-6 font-bold text-textMain">Selected Work</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <article
+                        class="border border-borderBase rounded-xl bg-cardBg p-6 transition-all duration-300 hover:border-[#16f2b36b] hover:-translate-y-1 hover:shadow-[0_10px_28px_rgba(6,12,24,0.62)] flex flex-col h-full">
+                        <h3 class="font-mono text-lg text-accentAlt mb-4">Customer Buy Prediction (ML)</h3>
+                        <div class="text-textSoft flex-grow space-y-2 mb-6">
+                            <p>• Implemented end-to-end ML pipeline.</p>
+                            <p>• Built classification model using Python and scikit-learn.</p>
+                            <p>• Performed data preprocessing and model evaluation.</p>
+                            <p>• Deployed prediction API using FastAPI.</p>
+                        </div>
+                        <div class="flex gap-3 mt-auto">
+                            <a class="text-textMain border border-[#3da2ff85] rounded-lg text-sm px-4 py-2 bg-[#3da2ff1a] transition-all hover:border-[#16f2b3bd] hover:bg-[#16f2b324] hover:text-[#e9fff7] w-full text-center font-medium"
+                                href="#">Code / GitLink</a>
+                        </div>
+                    </article>
+
+                    <article
+                        class="border border-borderBase rounded-xl bg-cardBg p-6 transition-all duration-300 hover:border-[#16f2b36b] hover:-translate-y-1 hover:shadow-[0_10px_28px_rgba(6,12,24,0.62)] flex flex-col h-full">
+                        <h3 class="font-mono text-lg text-accentAlt mb-4">Diabetes Prediction App (ML)</h3>
+                        <div class="text-textSoft flex-grow space-y-2 mb-6">
+                            <p>• Implemented end-to-end ML pipeline.</p>
+                            <p>• Built classification model using Python and scikit-learn.</p>
+                            <p>• Performed data preprocessing and model evaluation.</p>
+                            <p>• Deployed prediction API using FastAPI.</p>
+                        </div>
+                        <div class="flex gap-2 mt-auto">
+                            <a class="flex-1 text-textMain border border-[#3da2ff85] rounded-lg text-sm px-2 py-2 bg-[#3da2ff1a] transition-all hover:border-[#16f2b3bd] hover:bg-[#16f2b324] hover:text-[#e9fff7] text-center font-medium"
+                                href="#">GitLink</a>
+                            <a class="flex-1 text-textMain border border-[#3da2ff85] rounded-lg text-sm px-2 py-2 bg-[#3da2ff1a] transition-all hover:border-[#16f2b3bd] hover:bg-[#16f2b324] hover:text-[#e9fff7] text-center font-medium"
+                                href="#">Live (HF)</a>
+                        </div>
+                    </article>
+
+                    <article
+                        class="border border-borderBase rounded-xl bg-cardBg p-6 transition-all duration-300 hover:border-[#16f2b36b] hover:-translate-y-1 hover:shadow-[0_10px_28px_rgba(6,12,24,0.62)] flex flex-col h-full">
+                        <h3 class="font-mono text-lg text-accentAlt mb-4">CLI Banking System</h3>
+                        <div class="text-textSoft flex-grow mb-6">
+                            <p class="py-1 text-sm">
+                                <span class="text-accentAlt">Tech:</span> Python
+                            </p>
+                            <p class="mt-4 text-sm">A command-line based banking system built entirely in Python.</p>
+                        </div>
+                        <div class="flex gap-3 mt-auto">
+                            <a class="text-textMain border border-[#3da2ff85] rounded-lg text-sm px-4 py-2 bg-[#3da2ff1a] transition-all hover:border-[#16f2b3bd] hover:bg-[#16f2b324] hover:text-[#e9fff7] w-full text-center font-medium"
+                                href="#">Code / GitLink</a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="profiles"
+            class="relative flex items-center justify-center pt-24 px-4 sm:px-6 pb-14 min-h-screen overflow-hidden isolate">
+            <div class="sec-overlay"></div>
+            <div
+                class="w-full max-w-[1120px] mx-auto border border-borderBase rounded-2xl bg-panel shadow-custom p-6 md:p-10 fade-in-section">
+                <p class="font-mono text-[0.88rem] text-accent tracking-widest uppercase mb-4">Online Judges &amp;
+                    Profiles</p>
+                <h2 class="font-mono text-2xl sm:text-3xl md:text-4xl mb-6 font-bold text-textMain">Connect And Verify
+                    My Work</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+                    <a href="https://github.com/MullaRohan" target="_blank" rel="noreferrer noopener"
+                        class="block border border-borderBase rounded-xl bg-cardBg p-5 transition-all duration-300 hover:border-[#16f2b380] hover:-translate-y-1 hover:bg-[#16f2b30a] group">
+                        <h3 class="font-mono text-lg text-accentAlt mb-1 group-hover:text-accent transition-colors">[GH]
+                            GitHub</h3>
+                        <p class="text-[#d0e2ff] text-sm">github.com/MullaRohan</p>
+                    </a>
+
+                    <a href="https://codeforces.com/profile/MullaRohan" target="_blank" rel="noreferrer noopener"
+                        class="block border border-borderBase rounded-xl bg-cardBg p-5 transition-all duration-300 hover:border-[#16f2b380] hover:-translate-y-1 hover:bg-[#16f2b30a] group">
+                        <h3 class="font-mono text-lg text-accentAlt mb-1 group-hover:text-accent transition-colors">[CF]
+                            Codeforces</h3>
+                        <p class="text-[#d0e2ff] text-sm">codeforces.com/profile/MullaRohan</p>
+                    </a>
+
+                    <a href="https://www.codechef.com/users/mullarohan" target="_blank" rel="noreferrer noopener"
+                        class="block border border-borderBase rounded-xl bg-cardBg p-5 transition-all duration-300 hover:border-[#16f2b380] hover:-translate-y-1 hover:bg-[#16f2b30a] group">
+                        <h3 class="font-mono text-lg text-accentAlt mb-1 group-hover:text-accent transition-colors">[CC]
+                            CodeChef</h3>
+                        <p class="text-[#d0e2ff] text-sm">codechef.com/users/mullarohan</p>
+                    </a>
+
+                    <a href="https://wakatime.com/@mullarohan" target="_blank" rel="noreferrer noopener"
+                        class="block border border-borderBase rounded-xl bg-cardBg p-5 transition-all duration-300 hover:border-[#16f2b380] hover:-translate-y-1 hover:bg-[#16f2b30a] group">
+                        <h3 class="font-mono text-lg text-accentAlt mb-1 group-hover:text-accent transition-colors">[WT]
+                            WakaTime</h3>
+                        <p class="text-[#d0e2ff] text-sm">wakatime.com/@mullarohan</p>
+                    </a>
+                </div>
+
+                <div
+                    class="pt-6 border-t border-borderBase bg-[#0a122240] -mx-6 md:-mx-10 -mb-6 md:-mb-10 px-6 md:px-10 pb-6 md:pb-10 rounded-b-2xl">
+                    <h3 class="font-mono text-lg text-accent mb-4">Contact Info</h3>
+                    <div class="grid gap-3 md:flex md:gap-8">
+                        <p class="text-textSoft flex items-center gap-2"><span class="text-xl">✉</span>
+                            rohanmulla.cs@gmail.com</p>
+                        <p class="text-textSoft flex items-center gap-2"><span class="text-xl">📞</span> +880 1867799622
+                        </p>
+                        <p class="text-textSoft flex items-center gap-2"><span class="text-xl">📍</span> Mirpur,
+                            Kushtia, Bangladesh</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2" id="quick-menu-wrap">
+        <div class="flex-col gap-2 bg-panelSolid border border-borderBase p-2 rounded-xl shadow-custom hidden transition-opacity"
+            id="quick-menu-panel">
+            <a class="block px-4 py-2 text-sm text-textSoft hover:text-textMain hover:bg-[#16f2b31a] rounded-lg transition-colors"
+                href="#welcome">↑ Top</a>
+            <a class="block px-4 py-2 text-sm text-textSoft hover:text-textMain hover:bg-[#16f2b31a] rounded-lg transition-colors"
+                href="#about">About</a>
+            <a class="block px-4 py-2 text-sm text-textSoft hover:text-textMain hover:bg-[#16f2b31a] rounded-lg transition-colors"
+                href="#skills">Skills</a>
+            <a class="block px-4 py-2 text-sm text-textSoft hover:text-textMain hover:bg-[#16f2b31a] rounded-lg transition-colors"
+                href="#projects">Projects</a>
         </div>
-        <div
-            class="hidden dark:block absolute -bottom-32 left-1/3 w-96 h-96 bg-purple-500/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-4000">
-        </div>
+        <button
+            class="w-12 h-12 rounded-full border border-borderBase bg-panelSolid text-accent shadow-custom cursor-pointer text-2xl flex items-center justify-center transition-all hover:border-[#16f2b373] hover:scale-105"
+            id="quick-menu-toggle">
+            ⚡
+        </button>
     </div>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
-        <div
-            class="absolute inset-0 bg-white/80 dark:bg-dark/80 backdrop-blur-md border-b border-black/5 dark:border-white/5">
-        </div>
-        <div class="container mx-auto px-6 py-4 relative flex justify-between items-center">
-            <a href="#" class="text-2xl font-orbitron font-bold tracking-wider text-gray-900 dark:text-white">
-                MullaRohan<span class="text-primary"></span>
-            </a>
+    <script>
+        // Theme Toggling Logic
+        const themeToggle = document.getElementById("theme-toggle");
+        const themeIcon = document.getElementById("theme-icon");
+        const storageKey = "portfolio-theme";
 
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="nav-link text-sm uppercase tracking-widest">Home</a>
-                <a href="#about" class="nav-link text-sm uppercase tracking-widest">About</a>
-                <a href="#skills" class="nav-link text-sm uppercase tracking-widest">Skills</a>
-                <a href="#projects" class="nav-link text-sm uppercase tracking-widest">Projects</a>
-                <a href="#contact" class="nav-link text-sm uppercase tracking-widest">Contact</a>
-                <button id="theme-toggle"
-                    class="ml-4 p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-primary">
-                    <i class="fas fa-moon"></i>
-                </button>
-            </div>
+        function setTheme(theme) {
+            document.body.setAttribute("data-theme", theme);
+            themeIcon.textContent = theme === "light" ? "☀" : "🌙";
+            localStorage.setItem(storageKey, theme);
+        }
 
-            <!-- Mobile Menu Button -->
-            <button class="md:hidden text-gray-900 dark:text-white text-xl" id="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
+        const savedTheme = localStorage.getItem(storageKey) || "dark";
+        setTheme(savedTheme);
 
-        <!-- Mobile Menu -->
-        <div class="md:hidden absolute top-full left-0 w-full bg-white/95 dark:bg-dark/95 backdrop-blur-xl border-b border-black/10 dark:border-white/10 transform -translate-y-full transition-transform duration-300"
-            id="mobile-menu">
-            <div class="flex flex-col p-6 space-y-4">
-                <a href="#home" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">Home</a>
-                <a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">About</a>
-                <a href="#skills"
-                    class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">Skills</a>
-                <a href="#projects"
-                    class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">Projects</a>
-                <a href="#contact"
-                    class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">Contact</a>
-            </div>
-        </div>
-    </nav>
+        themeToggle.addEventListener("click", () => {
+            const currentTheme = document.body.getAttribute("data-theme");
+            setTheme(currentTheme === "dark" ? "light" : "dark");
+        });
 
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center relative pt-20">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div class="text-center md:text-left z-10">
-                <div
-                    class="inline-block px-3 py-1 mb-4 border border-primary/30 rounded-full bg-primary/10 backdrop-blur-sm">
-                    <span class="text-primary text-xs font-rajdhani font-bold tracking-[0.2em]">WELCOME TO MY
-                        PORTFOLIO</span>
-                </div>
-                <h1 class="text-5xl md:text-7xl font-bold font-orbitron mb-6 leading-tight">
-                    Hi, I'm <br>
-                    <span class="text-gradient">Md. Rohan Mulla</span>
-                </h1>
-                <div
-                    class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 font-rajdhani font-medium mb-8 h-8 flex items-center justify-center md:justify-start">
-                    I'm a&nbsp;<span class="typewriter-text text-gray-900 dark:text-white"></span><span
-                        class="cursor">|</span>
-                </div>
-                <div class="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
-                    <a href="#projects"
-                        class="px-8 py-3 bg-primary text-black font-bold rounded hover:bg-cyan-400 transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_20px_rgba(0,243,255,0.4)]">
-                        View Work
-                    </a>
-                    <a href="#"
-                        class="px-8 py-3 border border-black/20 dark:border-white/20 hover:border-primary text-gray-900 dark:text-white rounded hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-300">
-                        Download CV
-                    </a>
-                </div>
-            </div>
+        // Quick Menu Logic
+        const quickMenuToggle = document.getElementById("quick-menu-toggle");
+        const quickMenuPanel = document.getElementById("quick-menu-panel");
 
-            <div class="relative z-10 flex justify-center">
-                <div class="relative w-72 h-72 md:w-96 md:h-96">
-                    <!-- Abstract Tech Circle/Image Placeholder -->
-                    <div
-                        class="absolute inset-0 rounded-full border-2 border-primary/30 animate-[spin_10s_linear_infinite]">
-                    </div>
-                    <div
-                        class="absolute inset-4 rounded-full border-2 border-secondary/30 animate-[spin_15s_linear_infinite_reverse]">
-                    </div>
-                    <div
-                        class="absolute inset-0 rounded-full bg-gradient-to-br from-primary/10 to-secondary/10 backdrop-blur-sm flex items-center justify-center overflow-hidden animate-float">
-                        <img src="portfolio_rohan_ai_ml.png" alt="Mulla Rohan"
-                            class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        quickMenuToggle.addEventListener("click", () => {
+            quickMenuPanel.style.display = quickMenuPanel.style.display === "flex" ? "none" : "flex";
+        });
 
-    <!-- About Section -->
-    <section id="about" class="py-20 relative">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-orbitron font-bold text-center mb-16">
-                About <span class="text-primary">Me</span>
-            </h2>
+        document.querySelectorAll('#quick-menu-panel a').forEach(link => {
+            link.addEventListener('click', () => {
+                quickMenuPanel.style.display = "none";
+            });
+        });
 
-            <div class="glass-card rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-                <div class="grid md:grid-cols-3 gap-8 items-center">
-                    <div class="md:col-span-1 flex justify-center">
-                        <div class="w-40 h-40 rounded-full bg-gradient-to-r from-primary to-secondary p-1">
-                            <div
-                                class="w-full h-full bg-white dark:bg-dark rounded-full flex items-center justify-center overflow-hidden">
-                                <i class="fas fa-user-astronaut text-6xl text-gray-400"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md:col-span-2 space-y-4 text-gray-600 dark:text-gray-300">
-                        <p class="text-lg leading-relaxed">
-                            I'm <span class="text-gray-900 dark:text-white font-bold">Mulla Rohan</span>, a programming
-                            enthusiast with a
-                            strong focus on software engineering, competitive programming, and AI/ML. I enjoy solving
-                            problems, building efficient systems, and continuously improving my technical skills.
-                        </p>
-                        <p class="text-lg leading-relaxed">
-                            Currently studying <span class="text-primary">BSc in Computer Science & Engineering</span>
-                            at Rabindra Maitree University.
-                        </p>
-                        <div class="pt-4 flex gap-4">
-                            <div class="text-center">
-                                <h4 class="text-2xl font-bold text-gray-900 dark:text-white">5+</h4>
-                                <p class="text-sm text-gray-500">Projects</p>
-                            </div>
-                            <div class="text-center">
-                                <h4 class="text-2xl font-bold text-gray-900 dark:text-white">2+</h4>
-                                <p class="text-sm text-gray-500">Years Exp</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        // Intersection Observer for Scroll Animations & Navbar Active State
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-link");
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gray-100 dark:bg-dark-100/50">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-orbitron font-bold text-center mb-16">
-                My <span class="text-secondary">Skills</span>
-            </h2>
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.3 // Trigger when 30% of section is visible
+        };
 
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                <!-- Skill Card 1 -->
-                <div
-                    class="glass-card p-6 rounded-xl text-center hover:-translate-y-2 transition-transform duration-300 group">
-                    <i class="fas fa-code text-4xl mb-4 text-blue-500 group-hover:text-primary transition-colors"></i>
-                    <h3 class="font-rajdhani font-bold text-xl mb-1 text-gray-900 dark:text-white">C++</h3>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">Competitive Programming</p>
-                </div>
-                <!-- Skill Card 2 -->
-                <div
-                    class="glass-card p-6 rounded-xl text-center hover:-translate-y-2 transition-transform duration-300 group">
-                    <i
-                        class="fab fa-python text-4xl mb-4 text-yellow-400 group-hover:text-primary transition-colors"></i>
-                    <h3 class="font-rajdhani font-bold text-xl mb-1 text-gray-900 dark:text-white">Python</h3>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">Machine Learning</p>
-                </div>
-                <!-- Skill Card 3 -->
-                <div
-                    class="glass-card p-6 rounded-xl text-center hover:-translate-y-2 transition-transform duration-300 group">
-                    <i
-                        class="fab fa-html5 text-4xl mb-4 text-orange-500 group-hover:text-primary transition-colors"></i>
-                    <h3 class="font-rajdhani font-bold text-xl mb-1 text-gray-900 dark:text-white">HTML5</h3>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">Web Structure</p>
-                </div>
-                <!-- Skill Card 4 -->
-                <div
-                    class="glass-card p-6 rounded-xl text-center hover:-translate-y-2 transition-transform duration-300 group">
-                    <i
-                        class="fab fa-css3-alt text-4xl mb-4 text-blue-400 group-hover:text-primary transition-colors"></i>
-                    <h3 class="font-rajdhani font-bold text-xl mb-1 text-gray-900 dark:text-white">CSS3</h3>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">Responsive Design</p>
-                </div>
-                <!-- Skill Card 5 -->
-                <div
-                    class="glass-card p-6 rounded-xl text-center hover:-translate-y-2 transition-transform duration-300 group">
-                    <i class="fab fa-js text-4xl mb-4 text-yellow-300 group-hover:text-primary transition-colors"></i>
-                    <h3 class="font-rajdhani font-bold text-xl mb-1 text-gray-900 dark:text-white">JavaScript</h3>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">Interactivity</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    // Add fade-in animation class
+                    entry.target.querySelector('.fade-in-section')?.classList.add('is-visible');
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-orbitron font-bold text-center mb-16">
-                Featured <span class="text-primary">Projects</span>
-            </h2>
+                    // Update Navbar Active Link
+                    const currentId = entry.target.id;
+                    navLinks.forEach((link) => {
+                        link.classList.toggle("active", link.getAttribute("href") === `#${currentId}`);
+                    });
+                }
+            });
+        }, observerOptions);
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="glass-card rounded-xl overflow-hidden group">
-                    <div class="h-48 bg-gray-200 dark:bg-gray-800 relative overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-white dark:from-dark to-transparent opacity-80">
-                        </div>
-                        <div
-                            class="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                            <i class="fas fa-school text-6xl text-gray-600"></i>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3
-                            class="text-xl font-bold font-rajdhani mb-2 text-gray-900 dark:text-white group-hover:text-primary transition-colors">
-                            School Management</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">A comprehensive system for managing
-                            school operations
-                            efficiently.</p>
-                        <div class="flex gap-4">
-                            <a href="#" class="text-sm text-primary hover:text-white transition-colors"><i
-                                    class="fab fa-github mr-1"></i> Code</a>
-                            <a href="#" class="text-sm text-secondary hover:text-white transition-colors"><i
-                                    class="fas fa-external-link-alt mr-1"></i> Demo</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="glass-card rounded-xl overflow-hidden group">
-                    <div class="h-48 bg-gray-200 dark:bg-gray-800 relative overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-white dark:from-dark to-transparent opacity-80">
-                        </div>
-                        <div
-                            class="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                            <i class="fas fa-university text-6xl text-gray-600"></i>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3
-                            class="text-xl font-bold font-rajdhani mb-2 text-gray-900 dark:text-white group-hover:text-primary transition-colors">
-                            PyBank (CLI)</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">A command-line interface banking
-                            application built with
-                            Python.</p>
-                        <div class="flex gap-4">
-                            <a href="#" class="text-sm text-primary hover:text-white transition-colors"><i
-                                    class="fab fa-github mr-1"></i> Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="glass-card rounded-xl overflow-hidden group">
-                    <div class="h-48 bg-gray-200 dark:bg-gray-800 relative overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-white dark:from-dark to-transparent opacity-80">
-                        </div>
-                        <div
-                            class="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                            <i class="fas fa-globe-asia text-6xl text-gray-600"></i>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3
-                            class="text-xl font-bold font-rajdhani mb-2 text-gray-900 dark:text-white group-hover:text-primary transition-colors">
-                            Beautiful Bangladesh</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">A showcase website highlighting the
-                            beauty of Bangladesh.
-                        </p>
-                        <div class="flex gap-4">
-                            <a href="#" class="text-sm text-primary hover:text-white transition-colors"><i
-                                    class="fab fa-github mr-1"></i> Code</a>
-                            <a href="#" class="text-sm text-secondary hover:text-white transition-colors"><i
-                                    class="fas fa-external-link-alt mr-1"></i> Demo</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="glass-card rounded-xl overflow-hidden group">
-                    <div class="h-48 bg-gray-200 dark:bg-gray-800 relative overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-white dark:from-dark to-transparent opacity-80">
-                        </div>
-                        <div
-                            class="absolute inset-0 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                            <i class="fas fa-gamepad text-6xl text-gray-600"></i>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3
-                            class="text-xl font-bold font-rajdhani mb-2 text-gray-900 dark:text-white group-hover:text-primary transition-colors">
-                            Tic Tac Toe</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Classic game implementation with AI
-                            opponent logic.</p>
-                        <div class="flex gap-4">
-                            <a href="#" class="text-sm text-primary hover:text-white transition-colors"><i
-                                    class="fab fa-github mr-1"></i> Code</a>
-                            <a href="#" class="text-sm text-secondary hover:text-white transition-colors"><i
-                                    class="fas fa-play mr-1"></i> Play</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-100 dark:bg-dark-100/50">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-orbitron font-bold mb-16">
-                Get In <span class="text-secondary">Touch</span>
-            </h2>
-
-            <div class="flex flex-wrap justify-center gap-8 md:gap-12">
-                <a href="mailto:rohanmulla.cs@gmail.com" class="group flex flex-col items-center gap-3">
-                    <div
-                        class="w-16 h-16 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all duration-300">
-                        <i class="fas fa-envelope text-2xl text-gray-600 dark:text-gray-400 group-hover:text-black"></i>
-                    </div>
-                    <span
-                        class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors">Email</span>
-                </a>
-
-                <a href="https://github.com/MullaRohan" target="_blank" class="group flex flex-col items-center gap-3">
-                    <div
-                        class="w-16 h-16 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all duration-300">
-                        <i class="fab fa-github text-2xl text-gray-600 dark:text-gray-400 group-hover:text-black"></i>
-                    </div>
-                    <span
-                        class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors">GitHub</span>
-                </a>
-
-                <a href="https://codeforces.com/profile/MullaRohan" target="_blank"
-                    class="group flex flex-col items-center gap-3">
-                    <div
-                        class="w-16 h-16 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all duration-300">
-                        <i class="fas fa-code text-2xl text-gray-600 dark:text-gray-400 group-hover:text-black"></i>
-                    </div>
-                    <span
-                        class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors">Codeforces</span>
-                </a>
-
-                <a href="https://www.codechef.com/users/mullarohan" target="_blank"
-                    class="group flex flex-col items-center gap-3">
-                    <div
-                        class="w-16 h-16 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all duration-300">
-                        <i class="fas fa-utensils text-2xl text-gray-600 dark:text-gray-400 group-hover:text-black"></i>
-                    </div>
-                    <span
-                        class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors">CodeChef</span>
-                </a>
-
-                <a href="https://www.facebook.com/MullaRohan/" target="_blank"
-                    class="group flex flex-col items-center gap-3">
-                    <div
-                        class="w-16 h-16 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all duration-300">
-                        <i class="fab fa-facebook text-2xl text-gray-600 dark:text-gray-400 group-hover:text-black"></i>
-                    </div>
-                    <span
-                        class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors">Facebook</span>
-                </a>
-                <!-- asdfk -->
-                <a href="https://www.linkedin.com/in/mullarohan/" target="_blank"
-                    class="group flex flex-col items-center gap-3">
-                    <div
-                        class="w-16 h-16 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all duration-300">
-                        <i class="fab fa-linkedin text-2xl text-gray-600 dark:text-gray-400 group-hover:text-black"></i>
-                    </div>
-                    <span
-                        class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors">LinkedIn</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-8 border-t border-black/5 dark:border-white/5 text-center text-gray-500 text-sm">
-        <p>&copy; 2024 @MullaRohan. All rights reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
+        sections.forEach((section) => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 
 </html>
